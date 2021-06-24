@@ -1,0 +1,66 @@
+﻿@model BookManager.Models.Book
+
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditBook</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Price)
+    <table>
+        <tr>
+            <td>
+                Author;
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Author, new { @class = "form-control", placeholder = "Author" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Title;
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Title" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description;
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "Description" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Image Cover;
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Images, new { @class = "form-control", placeholder = "Author" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gia;
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control", placeholder = "Gia" })
+            </td>
+        </tr>
+        <tr style="text-align:center; padding-top:20px">
+            <td colspan="2">
+                <input type="submit" value="Save Book" class="btn btn-danger" />
+            </td>
+        </tr>
+    </table>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
